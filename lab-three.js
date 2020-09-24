@@ -26,3 +26,13 @@ console.log(isLeapYear(400))
 console.log(isLeapYear(404))
 console.log(isLeapYear(104))
 console.log(isLeapYear(200))
+
+function makeCalendar(){
+console.log('test');
+}
+
+module.exports = {
+    makeCalendar:makeCalendar, //export for use in main.js
+    getDayOfTheWeek:getDayOfTheWeek,
+    isLeapYear:isLeapYear
+}
