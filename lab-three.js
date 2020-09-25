@@ -18,12 +18,8 @@ function getDayOfTheWeek(year, month, day) {
 
 function getLastTwoDigitsOfYear(num) {
     var numToStr = num.toString();
-    console.log(numToStr.length);
     var lastTwoDigits = numToStr.substring(numToStr.length - 2, numToStr.length);
-    var strToNum = parseInt(lastTwoDigits); 
-    console.log(typeof strToNum);
-    console.log(typeof lastTwoDigits);
-    return lastTwoDigits;
+    return parseInt(lastTwoDigits);
 }
 
 function getQuotient(num, divisor) {
@@ -77,7 +73,7 @@ function getDayCode(day) {
 
 }
 
-console.log(getDayOfTheWeek(1950, "March", 20))
+console.log(getDayOfTheWeek(2019, "January", 1));
 
 function makeCalendar() {
     console.log("test");
