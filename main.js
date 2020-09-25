@@ -1,7 +1,7 @@
 var dateFunctions= require('./lab-three.js'); //import lab-three.js file into main.js
 var readlineSync= require('readline-sync'); //'npm i readline-sync' in terminal to install package for user input.
 
-dateFunctions.makeCalendar;//call function from lab-three.js, comes from module.export =...
+dateFunctions.makeCalendar();//call function from lab-three.js, comes from module.export =...
 
 getDayOfTheWeekForUserDate();
 
@@ -11,7 +11,10 @@ var userInputDate = readlineSync.question('Please enter a date(year/month/day). 
 var dateArray= []; //create array to split up year,month, and day 
 dateArray=userInputDate.split("/");
 
-if(dateFunctions.isLeapYear(dateArray[0]) == false && dateArray[1] == "02" && dateArray[2] > "28"){ 
+if(dateArray.length != 3 || dateArray[0].length < 4 || dateArray[1].length != 2 || dateArray[2] != 2){
+    console.log("This is an invalid date."); // if user inputs something that is not in the format of xxxx/xx/xx
+}
+else if(dateFunctions.isLeapYear(dateArray[0]) == false && dateArray[1] == "02" && dateArray[2] > "28"){ 
     console.log("This is an invalid date."); //if its not a leap year and the month is february, will only allow days to be up to 28.
 }
 else if(dateArray[1] == "02" && dateArray[2] > "29"){
@@ -28,4 +31,5 @@ else{
     console.log("this is a valid date.") //<--shows test to see if dates are valid
 }
 
+console.log(dateArray[0].length);
 }

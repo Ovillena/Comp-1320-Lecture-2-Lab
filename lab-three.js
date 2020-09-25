@@ -28,8 +28,9 @@ console.log(isLeapYear(104))
 console.log(isLeapYear(200))
 
 function makeCalendar(){
-console.log('test');
+console.log("test");
 }
+
 
 module.exports = {
     makeCalendar:makeCalendar, //export for use in main.js
