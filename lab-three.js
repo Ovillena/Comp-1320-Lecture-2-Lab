@@ -78,3 +78,16 @@ function getDayCode(day) {
 }
 
 console.log(getDayOfTheWeek(1950, "March", 20))
+
+function makeCalendar() {
+    console.log("test");
+}
+
+
+module.exports = {
+    makeCalendar: makeCalendar, //export for use in main.js
+    getDayOfTheWeek: getDayOfTheWeek,
+    isLeapYear: isLeapYear
+}
+
+
