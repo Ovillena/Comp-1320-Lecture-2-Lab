@@ -11,8 +11,8 @@ var userInputDate = readlineSync.question('Please enter a date(year/month/day). 
 var dateArray= []; //create array to split up year,month, and day 
 dateArray=userInputDate.split("/");
 
-if(dateArray.length != 3 || dateArray[0].length < 4 || dateArray[1].length != 2 || dateArray[2] != 2){
-    console.log("This is an invalid date."); // if user inputs something that is not in the format of xxxx/xx/xx
+if(dateArray.length != 3 || dateArray[0].length < 4 || dateArray[1].length != 2 || dateArray[2].length != 2 || dateArray[1] >12 || dateArray[0] < 1 || dateArray[1] < 1 || dateArray[2] < 1){
+    console.log("This is an invalid date."); // if user inputs something that is not in the format of xxxx/xx/xx and cannot have negative numbers
 }
 else if(dateFunctions.isLeapYear(dateArray[0]) == false && dateArray[1] == "02" && dateArray[2] > "28"){ 
     console.log("This is an invalid date."); //if its not a leap year and the month is february, will only allow days to be up to 28.
