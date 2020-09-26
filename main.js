@@ -27,9 +27,8 @@ else if(dateArray[2] > 31){
     console.log("This is an invalid date."); // all the other months can't go passed 31 days
 }
 else{
-    dateFunctions.getDayOfTheWeek(dateArray[0],dateArray[1],dateArray[2]); //if it's a valid date then it finds day of the week
-    console.log("this is a valid date.") //<--shows test to see if dates are valid
+    console.log(dateFunctions.getDayOfTheWeek(dateArray[0],dateArray[1],dateArray[2])); //if it's a valid date then it finds day of the week
 }
 
-console.log(dateArray[0].length);
+
 }
