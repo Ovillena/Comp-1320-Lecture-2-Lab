@@ -5,23 +5,10 @@ function isLeapYear(year) {
         return false  
 }
 
-function getDayOfTheWeek(year, month, day) {
-    var lastTwoDigitsOfYear = getLastTwoDigitsOfYear(year);
-    var quotientOfYear = getQuotient(lastTwoDigitsOfYear, 12);
-    var remainderOfYear = getRemainder(lastTwoDigitsOfYear, 12);
-    var quotientOfRemainder = getQuotient(remainderOfYear, 4);
-    var monthCode = getMonthCode(month);
-    var centurycode = getCenturyCode(getFirstTwoDigitsOfYear(year)); 
-
-    var total = (quotientOfYear + remainderOfYear + quotientOfRemainder + parseInt(day) + monthCode + centurycode) % 7;
-    //found that the 'day' in total was a string and so it was concatinating the rest of the variables. used parseInt(day)
-    return getDayCode(total);
-}
-
-
 function getFirstTwoDigitsOfYear(num) { //find the first 2 digits of the year to find century code in getCenturyCode()
-    var yearSubString = num.substring(0,2);
-    return yearSubString;   
+    var numToStr = num.toString(); 
+    var yearSubString = numToStr.substring(0, 2);
+    return parseInt(yearSubString);
 }
 
 function getCenturyCode(num){ //get century code for special offsets for certain centuries
@@ -90,16 +77,46 @@ function getDayCode(day) {
         return "Thursday"
     } else if (day == 6) {
         return "Friday"
-    } else {
-        return "Please enter a valid Day, i.e Monday, Tuesday ..."
     }
 
 }
 
-function makeCalendar() {
+function getDayOfTheWeek(year, month, day) {
+    var lastTwoDigitsOfYear = getLastTwoDigitsOfYear(year);
+    var quotientOfYear = getQuotient(lastTwoDigitsOfYear, 12);
+    var remainderOfYear = getRemainder(lastTwoDigitsOfYear, 12);
+    var quotientOfRemainder = getQuotient(remainderOfYear, 4);
+    var monthCode = getMonthCode(month);
+    var centurycode = getCenturyCode(getFirstTwoDigitsOfYear(year));
+
+    var total = (quotientOfYear + remainderOfYear + quotientOfRemainder + parseInt(day) + monthCode + centurycode) % 7;
+    //found that the 'day' in total was a string and so it was concatinating the rest of the variables. used parseInt(day)
+    return getDayCode(total);
+}
+
+function daysInMonth(month, year) {
+    if (month == 04 || month == 06 || month == 09 || month == 11) {
+        return 30
+    } else if (month == 02 && isLeapYear(year)) {
+        return 29
+    } else if (month == 02 && !isLeapYear(year)) {
+        return 28
+    } else {
+        return 31
+    }
     
 }
 
+function makeCalendar(year) {
+    var numOfMonths = 12;
+    for (var m = 1; m < numOfMonths + 1; m++){
+        for (var d = 1; d < daysInMonth(m, year) + 1; d++){
+            console.log(`${m}-${d}-${year} is a ${getDayOfTheWeek(year, m, d)}`)
+        }
+    }
+}
+
+makeCalendar(2019);
 
 module.exports = {
     makeCalendar: makeCalendar, //export for use in main.js
