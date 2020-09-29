@@ -116,7 +116,6 @@ function makeCalendar(year) {
     }
 }
 
-makeCalendar(2020);
 
 module.exports = {
     makeCalendar: makeCalendar, //export for use in main.js

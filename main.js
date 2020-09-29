@@ -3,7 +3,10 @@ var readlineSync= require('readline-sync'); //'npm i readline-sync' in terminal 
 
 //call function from lab-three.js, comes from module.export =...
 
-getDayOfTheWeekForUserDate();
+dateFunctions.makeCalendar(2020); // calls make calendar function for 2020
+
+getDayOfTheWeekForUserDate(); //finds day of the week for user
+
 
 function getDayOfTheWeekForUserDate(){
 var userInputDate = readlineSync.question('Please enter a date(year/month/day). eg. 1991/01/31: '); //asks user to enter a date
@@ -30,5 +33,4 @@ else{
     console.log(dateFunctions.getDayOfTheWeek(dateArray[0],dateArray[1],dateArray[2])); //if it's a valid date then it finds day of the week
 }
 
-dateFunctions.makeCalendar();// moved this funct below getDAyOfTheWeekForUserDate() so that the dates print out and it asks for user input.
 }
