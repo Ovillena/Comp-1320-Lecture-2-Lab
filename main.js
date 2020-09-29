@@ -1,7 +1,7 @@
 var dateFunctions= require('./lab-three.js'); //import lab-three.js file into main.js
 var readlineSync= require('readline-sync'); //'npm i readline-sync' in terminal to install package for user input.
 
-dateFunctions.makeCalendar();//call function from lab-three.js, comes from module.export =...
+//call function from lab-three.js, comes from module.export =...
 
 getDayOfTheWeekForUserDate();
 
@@ -30,5 +30,5 @@ else{
     console.log(dateFunctions.getDayOfTheWeek(dateArray[0],dateArray[1],dateArray[2])); //if it's a valid date then it finds day of the week
 }
 
-
+dateFunctions.makeCalendar();// moved this funct below getDAyOfTheWeekForUserDate() so that the dates print out and it asks for user input.
 }
